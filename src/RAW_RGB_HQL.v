@@ -39,7 +39,7 @@ assign D35 = D2;
 assign D45 = D3;
 assign D55 = D4;
 
-//5X5第一行
+
 always @(posedge CLK ) begin
 //    if(~RST_N)begin
 //        D14<=0;
@@ -55,7 +55,7 @@ always @(posedge CLK ) begin
 //    end
 end
 
-//5X5第二行
+
 always @(posedge CLK ) begin
 //    if(~RST_N)begin
 //        D24<=0;
@@ -72,7 +72,6 @@ always @(posedge CLK ) begin
 end
 
 
-//5X5第三行
 always @(posedge CLK ) begin
 //    if(~RST_N)begin
 //        D34<=0;
@@ -88,7 +87,7 @@ always @(posedge CLK ) begin
 //    end
 end
 
-//5X5第四行
+
 always @(posedge CLK ) begin
 //    if(~RST_N)begin
 //        D44<=0;
@@ -104,7 +103,7 @@ always @(posedge CLK ) begin
 //    end
 end
 
-//5X5第五行
+
 always @(posedge CLK ) begin
 //    if(~RST_N)begin
 //        D54<=0;
@@ -120,7 +119,7 @@ always @(posedge CLK ) begin
 //    end
 end
 
-//一共四种卷积核
+
 R_at_G_in_Rrow_Bcolumn u_R_at_G_in_Rrow_Bcolumn(
     .D11(D11),.D12(D12),.D13(D13),.D14(D14),.D15(D15),
     .D21(D21),.D22(D22),.D23(D23),.D24(D24),.D25(D25),

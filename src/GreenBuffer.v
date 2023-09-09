@@ -12,19 +12,19 @@ module GreenBuffer (
     output reg [9:0] G32
     
 );
-//第一行
+
 always @(posedge clk) begin
     G12<=G13;
     G11<=G12;
 end
 
-//第二行
+
 always @(posedge clk) begin
     G22<=G23;
     G21<=G22;
 end
 
-//第三行
+
 always @(posedge clk) begin
     G32<=G33;
     G31<=G32;

@@ -49,10 +49,10 @@ assign D77 = D6;
 
 
 reg [9:0] G13_w, G23_w, G33_w;
-wire [9:0] G13_G, G23_G, G33_G; //绿色中心点给出来的
-wire [9:0] G13_RB, G23_RB, G33_RB;//RB中心点给出来的
+wire [9:0] G13_G, G23_G, G33_G; 
+wire [9:0] G13_RB, G23_RB, G33_RB;
 
-//GreenBuffer的写选择 
+
 always @(*) begin
     case ({Y ,X })
         1: begin
@@ -95,7 +95,7 @@ GreenBuffer u_GreenBuffer(
 );
 
 
-//7X7第一行
+
 always @(posedge CLK) begin
     D16<=D17;
     D15<=D16;
@@ -105,7 +105,7 @@ always @(posedge CLK) begin
     D11<=D12;
 end
 
-//7X7第二行
+
 always @(posedge CLK) begin
     D26<=D27;
     D25<=D26;
@@ -115,7 +115,7 @@ always @(posedge CLK) begin
     D21<=D22;
 end
 
-//7X7第三行
+
 always @(posedge CLK) begin
     D36<=D37;
     D35<=D36;
@@ -125,7 +125,7 @@ always @(posedge CLK) begin
     D31<=D32;
 end
 
-//7X7第四行
+
 always @(posedge CLK) begin
     D46<=D47;
     D45<=D46;
@@ -135,7 +135,7 @@ always @(posedge CLK) begin
     D41<=D42;
 end
 
-//7X7第五行
+
 always @(posedge CLK) begin
     D56<=D57;
     D55<=D56;
@@ -145,7 +145,6 @@ always @(posedge CLK) begin
     D51<=D52;
 end
 
-//7X7第六行
 always @(posedge CLK) begin
     D66<=D67;
     D65<=D66;
@@ -155,7 +154,7 @@ always @(posedge CLK) begin
     D61<=D62;
 end
 
-//7X7第七行
+
 always @(posedge CLK) begin
     D76<=D77;
     D75<=D76;

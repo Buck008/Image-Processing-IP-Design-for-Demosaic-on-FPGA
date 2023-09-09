@@ -8,7 +8,7 @@ module G_at_ALL (
     input [9:0] D71,D72,D73,D74,D75,D76,D77,
     output [9:0] G13_RB,G23_G,G33_RB
 );
-//这个模块用于计算所有需要计算的绿色输出，是流水线第一级
+//This module is used to compute all the green outputs that need to be computed and is the first level of the pipeline
 G_at_RB_Hamilton g_23_G(
 .D22(D23),.D23(D24),.D24(D25),.D25(D26),.D26(D27),
 .D32(D33),.D33(D34),.D34(D35),.D35(D36),.D36(D37),

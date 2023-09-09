@@ -1,5 +1,5 @@
 module Register_Nbits 
-#(parameter N=10 )//默认为10bits寄存器
+#(parameter N=10 )
 (
     input               clk,
     input               reset_n,

@@ -15,19 +15,19 @@ wire [9:0] g53;
 wire [9:0] g33;
 wire [9:0] g55;
 
-wire [11:0] temp_D_45_half;//有符号
-wire [11:0] temp_D_135_half;//有符号
-wire [11:0] Delta_45;//无符号
-wire [11:0] Delta_135;//无符号
+wire [11:0] temp_D_45_half;//signed
+wire [11:0] temp_D_135_half;//signed
+wire [11:0] Delta_45;//unsigned
+wire [11:0] Delta_135;//unsigned
 assign temp_D_45_half = {g44,1'b0}-g35-g53;
 assign temp_D_135_half = {g44,1'b0}-g33-g55;
 assign Delta_45 = ((D35>D53)?(D35-D53):(D53-D35)) + (temp_D_45_half[11]? -temp_D_45_half : temp_D_45_half);
 assign Delta_135 = ((D33>D55)?(D33-D55):(D55-D33)) + (temp_D_135_half[11]? -temp_D_135_half : temp_D_135_half);
 
-wire [11:0] result_1;//有符号
-wire [11:0] result_2;//有符号
-wire [11:0] result_3;//有符号
-wire [11:0] result_;//有符号
+wire [11:0] result_1;//signed
+wire [11:0] result_2;//signed
+wire [11:0] result_3;//signed
+wire [11:0] result_;//signed
 assign result_1 = D35[9:1]+D53[9:1]+g44-g35[9:1]-g53[9:1];
 assign result_2 = D33[9:1]+D55[9:1]+g44-g33[9:1]-g55[9:1];
 assign result_3 = D33[9:2]+D55[9:2]+D35[9:2]+D53[9:2]+g44-g35[9:2]-g53[9:2]-g33[9:2]-g55[9:2];

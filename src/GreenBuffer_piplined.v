@@ -17,22 +17,21 @@ module GreenBuffer_piplined (
     output reg [9:0] G33
     
 );
-//设计一个3*3的reg，用于分隔
-//第一行
+
 always @(posedge clk) begin
     G13<=G13_tmp;
     G12<=G13;
     G11<=G12;
 end
 
-//第二行
+
 always @(posedge clk) begin
     G23<=G23_tmp;
     G22<=G23;
     G21<=G22;
 end
 
-//第三行
+
 always @(posedge clk) begin
     G33<=G33_tmp;
     G32<=G33;

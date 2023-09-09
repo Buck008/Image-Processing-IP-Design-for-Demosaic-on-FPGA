@@ -47,7 +47,6 @@ assign D57 = D4;
 assign D67 = D5;
 assign D77 = D6;
 
-//第二级所用的D数值
 reg  [9:0] D11_nd,D12_nd,D13_nd,D14_nd,D15_nd,D16_nd,D17_nd; 
 reg  [9:0] D21_nd,D22_nd,D23_nd,D24_nd,D25_nd,D26_nd,D27_nd; 
 reg  [9:0] D31_nd,D32_nd,D33_nd,D34_nd,D35_nd,D36_nd,D37_nd;
@@ -117,18 +116,17 @@ end
 
 
 
-//3*3green 的定义
 wire [9:0] G11,G12,G13;
 wire [9:0] G21,G22,G23;
 wire [9:0] G31,G32,G33;
 reg [9:0] G13_w, G23_w, G33_w;
-wire [9:0] G13_G, G23_G, G33_G; //绿色中心点给出来的
-wire [9:0] G13_RB, G23_RB, G33_RB;//RB中心点给出来的
+wire [9:0] G13_G, G23_G, G33_G;
+wire [9:0] G13_RB, G23_RB, G33_RB;
 assign G23_RB = D45;
 assign G13_G = D35;
 assign G33_G = D55;
 
-//流水线第一级
+
 
 
 G_at_ALL g_at_all(
@@ -144,9 +142,7 @@ G_at_ALL g_at_all(
     .G33_RB(G33_RB)
 );
 
-//中间reg
 
-//GreenBuffer的写选择 
 always @(*) begin
     case ({Y ,X })
         1: begin
@@ -195,7 +191,6 @@ GreenBuffer_piplined green_regs(
 
 
 
-//第二级的输入
 wire [9:0] G11_nd;
 wire [9:0] G12_nd;
 wire [9:0] G13_nd;
@@ -226,7 +221,7 @@ RB_at_BR_Hamilton_piplined u_RB_at_BR_Hamilton_piplined(
     .D51(D51_nd),.D52(D52_nd),.D53(D53_nd),.D54(D54_nd),.D55(D55_nd),.D56(D56_nd),.D57(D57_nd),
     .D61(D61_nd),.D62(D62_nd),.D63(D63_nd),.D64(D64_nd),.D65(D65_nd),.D66(D66_nd),.D67(D67_nd),
     .D71(D71_nd),.D72(D72_nd),.D73(D73_nd),.D74(D74_nd),.D75(D75_nd),.D76(D76_nd),.D77(D77_nd),
-    .g44(G22_nd),//这里直接换成了3*3中心点
+    .g44(G22_nd),
     .G11(G11_nd),.G12(G12_nd),.G13(G13_nd),
     .G21(G21_nd),.G22(G22_nd),.G23(G23_nd),
     .G31(G31_nd),.G32(G32_nd),.G33(G33_nd),
@@ -280,7 +275,6 @@ RB_at_G_Hamilton_piplined u_RB_at_G_Hamilton_piplined(
 // );
 
 
-//7X7第一行
 always @(posedge CLK) begin
     D16<=D17;
     D15<=D16;
@@ -290,7 +284,7 @@ always @(posedge CLK) begin
     D11<=D12;
 end
 
-//7X7第二行
+
 always @(posedge CLK) begin
     D26<=D27;
     D25<=D26;
@@ -300,7 +294,6 @@ always @(posedge CLK) begin
     D21<=D22;
 end
 
-//7X7第三行
 always @(posedge CLK) begin
     D36<=D37;
     D35<=D36;
@@ -310,7 +303,7 @@ always @(posedge CLK) begin
     D31<=D32;
 end
 
-//7X7第四行
+
 always @(posedge CLK) begin
     D46<=D47;
     D45<=D46;
@@ -320,7 +313,6 @@ always @(posedge CLK) begin
     D41<=D42;
 end
 
-//7X7第五行
 always @(posedge CLK) begin
     D56<=D57;
     D55<=D56;
@@ -330,7 +322,7 @@ always @(posedge CLK) begin
     D51<=D52;
 end
 
-//7X7第六行
+
 always @(posedge CLK) begin
     D66<=D67;
     D65<=D66;
@@ -340,7 +332,6 @@ always @(posedge CLK) begin
     D61<=D62;
 end
 
-//7X7第七行
 always @(posedge CLK) begin
     D76<=D77;
     D75<=D76;

@@ -9,7 +9,7 @@ module RB_at_G_Hamilton_piplined (
     
     input [9:0] G11,G12,G13, 
     input [9:0] G21,G22,G23, 
-    input [9:0] G31,G32,G33, //第二级绿色
+    input [9:0] G31,G32,G33, 
     // output [9:0] G13,G23,G33,
     output [9:0] out_r, 
     output [9:0] out_b

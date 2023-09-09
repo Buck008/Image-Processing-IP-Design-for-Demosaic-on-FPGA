@@ -8,25 +8,25 @@ module G_at_RB_Hamilton (
     output [9:0] G
 );
 
-wire [10:0] deltaH;//无符号数
-wire [10:0] deltaV;//无符号数
+wire [10:0] deltaH;//unsigned
+wire [10:0] deltaV;//unsigned
 
-wire [9:0] deltaH_G;//无符号数
+wire [9:0] deltaH_G;//unsigned
 assign  deltaH_G = (D43>D45)?(D43-D45):(D45-D43);
 
-wire [9:0] deltaV_G;//无符号数
+wire [9:0] deltaV_G;//unsigned
 assign  deltaV_G = (D34>D54)?(D34-D54):(D54-D34);
 
-wire [11:0] t_deltaH_R;//有符号数
+wire [11:0] t_deltaH_R;//signed
 assign t_deltaH_R = {D44, 1'b0}-(D42+D46);
 
-wire [11:0] t_deltaV_R;//有符号数
+wire [11:0] t_deltaV_R;//signed
 assign t_deltaV_R = {D44, 1'b0}-(D24+D64);
 
-wire [11:0] deltaH_R;//无符号数
+wire [11:0] deltaH_R;//unsigned
 assign deltaH_R=t_deltaH_R[11]?-t_deltaH_R:t_deltaH_R;
 
-wire [11:0] deltaV_R;//无符号数
+wire [11:0] deltaV_R;//unsigned
 assign deltaV_R=t_deltaV_R[11]?-t_deltaV_R:t_deltaV_R;
 
 assign deltaH = deltaH_G +  deltaH_R;
