@@ -22,7 +22,6 @@ wire [9:0] g55;
 
 assign g33 = G11;
 assign g53 = G31;
-//流水线添加
 assign g35 = G13;
 assign g55 = G33;
 
